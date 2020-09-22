@@ -10,7 +10,7 @@ const appRoutes: Routes = [
     {path: '', component: HomeComponent, pathMatch: 'full' },
     {path: 'register', component: RegisterComponent },
     {path: 'login', component: SigninComponent},
-    {path: "", runGuardsAndResolvers: "always", canActivate: [AuthGuard], children: [
+    {path: '', runGuardsAndResolvers: "always", canActivate: [AuthGuard], children: [
         {path: 'logout', component: SignoutComponent}
     ]},
     {path: "**", redirectTo:"/", pathMatch: "full"}
