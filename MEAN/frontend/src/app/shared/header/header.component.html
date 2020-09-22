@@ -1,0 +1,31 @@
+
+<nav class='navbar navbar-default'>
+  <div class='container-fluid size-hold'>
+      <div class='navbar-header'>
+      </div>
+      <div class='navbar-default'><strong>
+        <ul class = 'nav navbar-nav'>
+          <li
+            routerLinkActive="!active">
+            <div routerLink='/'  class="logo">
+              <img alt="logo" src="" width="50px">
+            </div>
+          </li>
+          <li routerLinkActive="!active"><a routerLink='/'>Home</a></li>
+          <li
+            *ngIf="!auth.isAuthenticated" 
+            routerLinkActive="active">
+            <a routerLink='/register'>Sign Up</a></li>
+          <li
+            *ngIf="!auth.isAuthenticated" 
+            routerLinkActive="active">
+            <a routerLink='/login'>Log In</a></li>
+          <li
+            *ngIf="auth.isAuthenticated" 
+            routerLinkActive="active">
+            <a routerLink='/logout'>Log Out</a></li>
+        </ul>
+      </strong>
+    </div>
+  </div>
+</nav>

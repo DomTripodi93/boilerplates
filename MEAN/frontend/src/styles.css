@@ -1,0 +1,135 @@
+button{
+    white-space: normal;
+    word-wrap: break-word;
+    height: 100%;
+    overflow-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6{
+    line-height: 1.5;
+}
+
+.border{
+    border-style: solid;
+    border-color: black;
+    margin: auto;
+    max-width: 1150px;
+    background-color: rgb(235, 235, 235);
+}
+
+.grid25 { 
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+.grid33 { 
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+}
+
+.grid50 { 
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.grid100 { 
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.border-inner-left{
+    height: 100%;
+    border-style: solid hidden solid solid;
+    border-color: black;
+    background-color: rgb(255, 255, 255);
+    border-width: 2px;
+}
+
+.border-inner-right{
+    height: 100%;
+    border-style: solid;
+    border-color: black;
+    background-color: rgb(255, 255, 255);
+    border-width: 2px;
+}
+
+.border-inner-header-left{
+    height: 100%;
+    border-style: solid hidden solid solid;
+    border-color: black;
+    background-color: rgb(225, 251, 226);
+    border-width: 2px;
+}
+
+.border-inner-header-right{
+    height: 100%;
+    border-style: solid;
+    border-color: black;
+    background-color: rgb(225, 251, 226);
+    border-width: 2px;
+}
+
+.bold{
+    font-weight: 700;
+}
+
+.centered{
+    text-align: center;
+}
+
+.middle{
+    margin:auto;
+}
+
+.error{
+    background: red;
+    text-emphasis: 600;
+    text-align: center;
+    color: white;
+    border-style: solid;
+    border-color: black;
+    height: 600;
+    margin: auto;
+}
+
+.grid25 { 
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    text-align: center;
+}
+
+.grid20 { 
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    text-align: center;
+}
+
+.small{
+    font-size: 70%;
+}
+
+.is-mobile{
+    visibility: hidden;
+}
+
+.not-mobile{
+    visibility: visible;
+}
+
+@media only screen and (max-width: 768px) {
+    h2{
+        word-wrap: break-word;
+    }
+    h6{
+        font-size: 75%;
+    }
+    .small{
+        font-size: 60%;
+    }
+    .is-mobile{
+        visibility: visible;
+    }
+    .not-mobile{
+        visibility: hidden;
+    }
+}
