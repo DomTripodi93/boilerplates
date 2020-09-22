@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Production Management';
+  title = 'Angular Dotnet Boilerplate';
 
   public constructor(
     public auth: AuthService,
@@ -21,11 +21,6 @@ export class AppComponent implements OnInit {
   ngOnInit(){
     this.auth.authChanged.subscribe(()=>{
       this.auth.apiUrl = this.auth.authApiUrl + "/" + this.auth.user;
-      if (this.auth.isAuthenticated){
-        this.auth.checkSettings().subscribe(()=>{},()=>{
-          this.auth.logout();
-        });
-      };
     });
     //Subscription to logging in and out to check user token against the backend, if 
     // the token fails, there will be an error, triggering the logout function in 
