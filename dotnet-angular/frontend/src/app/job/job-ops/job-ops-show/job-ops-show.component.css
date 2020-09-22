@@ -1,0 +1,54 @@
+.grid { 
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.grid2 { 
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.border{
+    border: solid;
+}
+
+.white-text{
+    color: white;
+}
+
+h3{
+    text-align: center;
+    text-decoration: underline;
+}
+
+h2{
+    text-align: center;
+}
+
+h4{
+    text-align: center;
+}
+
+button{
+    font-size: 75%;
+}
+
+.mobile {
+    display: none;
+    visibility: hidden;
+}
+
+
+@media only screen and (max-width: 900px) {
+
+    button{
+        font-size: 9px;
+        font-weight: 600;
+    }
+
+    .mobile { 
+        visibility: visible;
+        display: initial;
+    }
+
+}

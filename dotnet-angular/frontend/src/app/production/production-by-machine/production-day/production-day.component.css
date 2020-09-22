@@ -1,0 +1,49 @@
+h5{
+    text-align: center;
+    font-style: Helvetica;
+}
+
+.grid3 { 
+    display: grid;
+    grid-template-columns: 42% 58%;
+}
+
+.short{
+    height: 54px
+}
+
+.middle{
+    vertical-align: middle;
+    text-align: center;
+    margin: auto;
+}
+
+.smaller{
+    height: 30px;
+    width: 45px;
+}
+
+.div54{
+    height: 54px
+}
+
+.small-break{
+    line-height: 0;
+}
+
+.in-button{
+    float: right;
+    margin: auto;
+}
+
+
+
+@media screen and (max-width: 900px) {
+    .smaller{
+        height: 25px;
+        width: 41px;
+    }
+    h6{
+        font-size: x-small;
+    }
+}

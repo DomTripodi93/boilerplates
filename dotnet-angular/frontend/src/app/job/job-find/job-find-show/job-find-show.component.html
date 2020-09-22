@@ -1,0 +1,66 @@
+<div *ngIf='oneJob'>
+  <div class="border">
+    <div *ngIf="!editJob">
+      <div class="grid" *ngIf="auth.machType == 'lathe'">
+        <button *ngIf="!oneJob.possibleQuantity" class='btn btn-primary' routerLink="/{{auth.machType}}/jobs/calculator/job/{{oneJob.jobNumber}}">Length Calc</button>
+        <button *ngIf="oneJob.possibleQuantity" class='btn btn-info' routerLink="/{{auth.machType}}/jobs/calculator/{{oneJob.jobNumber}}">Remaining</button>
+        <button *ngIf="!oneJob.weightQuantity" class='btn btn-success' routerLink="/{{auth.machType}}/jobs/calculator/weight/{{oneJob.jobNumber}}">Weight Calc</button>
+      </div>
+      <div class="grid2" *ngIf="auth.machType == 'mill'">
+        <button *ngIf="!oneJob.possibleQuantity" class='btn btn-primary' routerLink="/{{auth.machType}}/jobs/calculator/job/{{oneJob.jobNumber}}">Set Mat Recieved</button>
+      </div>
+      <div class="grid2">
+        <button *ngIf="oneJob.active == 'Active'" class='btn btn-danger' (click)="changeActive()">Set Job Inactive</button>
+        <button *ngIf="oneJob.active != 'Active'" class='btn btn-success' (click)="changeActive()">Set Job Active</button>
+      </div>
+      <div routerLink="/{{auth.machType}}/jobs/{{oneJob.jobNumber}}">
+        <br>
+        <h3>Job#: <strong>{{oneJob.jobNumber}}</strong></h3>
+        <h4>Part#: <br class="mobile"> <strong>{{oneJob.partNumber}}</strong></h4>
+        <h4 *ngIf="oneJob.orderQuantity">
+          Order Quantity: <br class="mobile"> <strong>{{oneJob.orderQuantity}}</strong>
+        </h4>
+        <h4 *ngIf="oneJob.deliveryDate">
+          Delivery Date: <br class="mobile"> <strong>{{oneJob.deliveryDate}}</strong>
+        </h4>
+        <h4 *ngIf="!oneJob.possibleQuantity && oneJob.weightQuantity">
+          Possible Quantity: <br class="mobile"> <strong>{{oneJob.weightQuantity}}</strong>
+        </h4>
+        <h4 *ngIf="oneJob.possibleQuantity">
+          Possible Quantity: <br class="mobile"> <strong>{{oneJob.possibleQuantity}}</strong>
+        </h4>
+        <h4 *ngIf="oneJob.remainingQuantity">
+          Remaining Quantity: <br class="mobile"> <strong>{{oneJob.remainingQuantity}}</strong>
+        </h4> 
+        <br><br>
+      </div>
+      <div class="grid">
+          <button class='btn btn-primary' (click)="onEdit()">Edit Job</button>
+          <button class='btn btn-danger' (click)="onDelete(oneJob.jobNumber)">Delete Job</button>
+      </div>
+    </div>
+
+    <div *ngIf="editJob">
+      <app-job-edit [job]="oneJob"></app-job-edit>
+    </div>
+
+    <div>
+      <h4> Operations </h4>
+      <app-job-ops-show [job]="oneJob"></app-job-ops-show>
+    </div>
+  </div>
+  <br>
+</div>
+
+
+<div class="flex" *ngIf='jobs'>
+  <div class="set-width" *ngFor="let job of jobs; let i=index">  
+    <app-job-find-show [jobInput]="job"></app-job-find-show>
+  </div>
+  <br>
+</div>
+
+
+<div *ngIf='jobs.length == 0 && !oneJob'>
+    <h2> No jobs for this Search </h2>
+</div>

@@ -1,0 +1,22 @@
+.grid { 
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+h5{
+    text-align: center;
+}
+
+button{
+    font-size: auto;
+    margin: 0px 5px 0px 5px;
+}
+
+@media only screen and (max-width: 768px) {
+    button{
+        font-size: 9px;
+        font-weight: 600;
+        margin: auto;
+    }
+}
+

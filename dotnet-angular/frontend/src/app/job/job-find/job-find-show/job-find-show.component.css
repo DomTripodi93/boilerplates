@@ -1,0 +1,54 @@
+.grid { 
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.grid2 { 
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.flex { 
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.border{
+    border: solid;
+}
+
+.white-text{
+    color: white;
+}
+
+.set-width{
+    width: 233.3px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3{
+    text-align: center;
+    text-decoration: underline;
+}
+
+h2{
+    text-align: center;
+}
+
+h4{
+    text-align: center;
+}
+
+.mobile {
+    display: none;
+    visibility: hidden;
+}
+
+@media screen and (max-width: 900px) {
+    .mobile { 
+        visibility: visible;
+        display: initial;
+    }
+}

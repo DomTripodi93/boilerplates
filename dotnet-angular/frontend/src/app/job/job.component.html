@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-14 col-sm-14 col-md-14 col-sm-offset-0 col-md-offset-0">
+            <div class="grid">
+                <button 
+                    *ngIf="!auth.buttonHidden[0]"
+                    class='btn btn-primary'
+                    routerLink="new"
+                >
+                    Add New Job
+                </button>
+                <div
+                    *ngIf="auth.buttonHidden[0]"
+                >
+                </div>
+                <div></div>
+                <button 
+                    *ngIf="jobServ.onlyActive"
+                    class='btn btn-primary'
+                    (click)="switchActive()"
+                >
+                    Show All Jobs
+                </button>
+                <button 
+                    *ngIf="!jobServ.onlyActive"
+                    class='btn btn-primary'
+                    (click)="switchActive()"
+                >
+                    Show Only Active Jobs
+                </button>
+                <div></div>
+                <button 
+                    *ngIf="!auth.buttonHidden[1]"
+                    class='btn btn-primary' 
+                    routerLink="find"
+                >
+                    Find Job
+                </button>   
+                <div
+                    *ngIf="auth.buttonHidden[1]"
+                >
+                </div>      
+            </div> 
+            <br><br>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

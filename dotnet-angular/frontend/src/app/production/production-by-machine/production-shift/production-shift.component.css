@@ -1,0 +1,15 @@
+.smaller{
+    height: 30px;
+    width: 45px;
+}
+
+.in-button{
+    float: right;
+    margin: auto;
+}
+
+.short{
+    vertical-align: middle;
+    text-align: center;
+    margin: auto;
+}

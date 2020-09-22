@@ -1,0 +1,23 @@
+<h5 *ngIf="!editMode && prod" class="short">
+  <strong>{{prod.quantity}}</strong><br>
+  <button *ngIf="!prod.average" (click)="changeAvg(prod.average, prod.id)" class='btn btn-danger smaller'>
+    <h6 class="in-button">Avg</h6>
+  </button>
+  <button *ngIf="prod.average" (click)="changeAvg(prod.average, prod.id)" class='btn btn-success smaller'>
+    <h6 class="in-button">Avg</h6>
+  </button>
+</h5>
+<h5 *ngIf="!editMode && !prod" class="short">
+  <strong>0</strong><br>
+  <button (click)="addProd()" class='btn btn-info smaller'>
+    <h6 class="in-button">Add</h6>
+  </button>
+</h5>
+<div *ngIf="editMode && prod">
+    <p class="small-break"></p>
+  <app-production-quantity (notEdit)="notEdit()" (updatedProduction)="updateProduction($event)" [quantity]="prod.quantity" [mach]="mach" [date]="date" [id]="prod.id"></app-production-quantity>
+</div>
+<div *ngIf="editMode && !prod">
+    <p class="small-break"></p>
+  <app-production-quantity (notEdit)="notEdit()" (updatedProduction)="updateProduction($event)" [shift]="shift" [quantity]="0" [date]="date" [mach]="mach"></app-production-quantity>
+</div>

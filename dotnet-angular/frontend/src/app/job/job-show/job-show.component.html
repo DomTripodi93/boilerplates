@@ -1,0 +1,11 @@
+<div class='grid' >
+  <div class="set-width" *ngFor="let job of jobs"> 
+    <app-job-find-show [jobInput]="job"> </app-job-find-show>
+  </div>
+</div>
+<br>
+<div *ngIf="pagination && pagination.totalPages !> pagination.currentPage && pagination.totalPages != pagination.currentPage" class="grid2">
+  <button class="btn btn-primary" (click)="showMore()">
+    Show More
+  </button>
+</div>

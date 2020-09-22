@@ -1,0 +1,16 @@
+.navbar {
+    background: rgb(74, 2, 188);
+}
+
+.size-hold{
+    max-width: 950px;
+}
+
+li{
+    text-align: center;
+    margin: 10px 1px 5px 1px;
+}
+
+img{
+    margin: 2px 20px 2px 20px;
+}

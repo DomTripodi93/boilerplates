@@ -1,0 +1,9 @@
+.input-center{
+    text-align-last: center;
+    text-align: center;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 100%;
+}

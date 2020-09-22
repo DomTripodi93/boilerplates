@@ -1,0 +1,9 @@
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+h6 {
+  font-weight: 400;
+  text-align: center;
+  line-height: 75%;
+}

@@ -1,0 +1,34 @@
+.grid { 
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.grid2 { 
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+h3{
+    text-align: center;
+}
+
+.mobile {
+    display: none;
+    visibility: hidden;
+}
+
+@media screen and (max-width: 900px) {
+    .separator {
+        display: none;
+        visibility: hidden;
+    }
+
+    .mobile { 
+        visibility: visible;
+        display: initial;
+    }
+}

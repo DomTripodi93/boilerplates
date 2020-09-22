@@ -1,0 +1,60 @@
+<ul class='list-group'>
+    <h1 *ngIf="machines.length === 0">Add Machines to status production on!</h1>
+    <div *ngIf="machines" class="mach-grid">
+        <li class ="list-group-item border" *ngFor="let mach of machines; let i=index">
+            <ul class="list-group">
+                <div class="btn-grid">
+                    <button 
+                        *ngIf="!hourServ.quick[i] && mach.currentJob != 'None' && mach.currentJob != 'None'" 
+                        class="btn btn-primary" 
+                        (click)="quickPlus(i)"
+                    >
+                        Change Job
+                    </button>
+                    <button 
+                        *ngIf="!hourServ.quick[i] && hourServ.canSetTime[i]" 
+                        class="btn btn-warning" 
+                        (click)="quickTimeEdit(i)"
+                    >
+                        Edit Start Time
+                    </button>
+                </div>
+                <h3>{{mach.machine}}</h3>
+                <h5 *ngIf="hourServ.startTimes[i].length > 0">Start Time: <strong>{{hourServ.startTimes[i]}}</strong></h5>
+                <h4>Job: <br><strong>{{mach.currentJob}}</strong>
+                <br>Op: <br><strong>{{mach.currentOp}}</strong></h4>
+                <div *ngIf="mach.currentOp !== 'None'" class="btn-grid">
+                    <button 
+                        *ngIf="!hourServ.quick[i]" 
+                        class="btn btn-info" 
+                        (click)="quickInput(i)"
+                    >
+                        Quick Input
+                    </button>
+                </div>
+                <div class="btn-grid" *ngIf="mach.currentOp === 'None'">
+                    <button 
+                        *ngIf="!hourServ.quick[i]" 
+                        class="btn btn-success" 
+                        (click)="quickPlus(i)"
+                    >
+                        Set Job
+                    </button>                    
+                </div>
+                <div *ngIf="hourServ.quick[i] && !hourServ.isJob[i] && !hourServ.setTime[i]" class="list-group-item">
+                    <app-hourly-new-short [index]="i">
+                    </app-hourly-new-short>     
+                </div>
+                <div *ngIf="hourServ.quick[i] && hourServ.isJob[i]" class="list-group-item">
+                    <app-machine-edit [machine]="mach" [id]="i">
+                    </app-machine-edit>     
+                </div>
+                <div *ngIf="hourServ.quick[i] && hourServ.setTime[i]" class="list-group-item">
+                    <app-hourly-set-time [startTime]="hourServ.startTimes[i]" [machName]="mach.machine" [index]="i"></app-hourly-set-time>
+                </div>
+                <app-hourly-show-each [machine]="mach" [index]="i" [startTime]="hourServ.startTimes[i]">
+                </app-hourly-show-each>
+            </ul>
+        </li>
+    </div>
+</ul>

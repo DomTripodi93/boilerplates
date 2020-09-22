@@ -1,0 +1,92 @@
+<div *ngIf="!editJob" class="grid33">
+  <h2 class="centered">Machine<br><strong>{{machine.machine}}</strong></h2>
+  <h2 class="centered">Job<br><strong>{{machine.currentJob}}</strong></h2>
+  <h2 class="centered">Operation<br><strong>{{machine.currentOp}}</strong></h2>
+</div>
+<div *ngIf="!editJob" class="middle grid100">
+  <button (click)="jobEdit()" class="btn btn-primary bold">Edit Job and Operation</button>
+</div>
+<div *ngIf="editJob" class="grid3366">
+  <h2 class="centered">Machine<br><strong>{{machine.machine}}</strong></h2>
+  <app-machine-edit [machine]="machine"></app-machine-edit>
+</div>
+<div class="grid25">
+  <h3>Day Shift <br> Average: <br><strong>{{dayAvg}}</strong></h3>
+  <h3>Night Shift <br> Average: <br><strong>{{nightAvg}}</strong></h3>
+  <h3>Over Night <br> Average: <br><strong>{{overNightAvg}}</strong></h3>
+  <h3>Full Day <br> Average: <br><strong>{{overNightAvg+nightAvg+dayAvg}}</strong></h3>
+</div>
+<div class="grid50split">
+    <h3>Parts Made On Machine: <br><strong>{{machTotal}}</strong></h3>
+    <div *ngIf="!editMode" class="grid100">
+        <div class='short'><br></div>
+        <button *ngIf="!editMode" class='btn btn-info smaller' (click)="editProd()"><h3 class="middle">Update</h3></button>
+    </div>
+    <div *ngIf="editMode">
+        <div class='short'><br></div>
+        <div class="grid50">
+          <button *ngIf="editMode" class='btn btn-success smaller' (click)="submitAll()"><h4 class="middle">Submit</h4></button>
+          <button *ngIf="editMode" class='btn btn-danger smaller' (click)="cancel()"><h4 class="middle">Cancel</h4></button>
+        </div>
+    </div>
+    <h3>Parts Made To Operation: <br><strong>{{total}}</strong></h3>
+</div>
+<div class="middle grid100">
+  <button (click)="addOldWeek()" class="btn bold btn-primary">
+    Show Previous week
+  </button>
+</div>
+<div class="grid">
+  <div class="border"><h5 class="bold">{{days[0]}}</h5></div>
+  <div class="border"><h5 class="bold">{{days[1]}}</h5></div>
+  <div class="border"><h5 class="bold">{{days[2]}}</h5></div>
+  <div class="border"><h5 class="bold">{{days[3]}}</h5></div>
+  <div class="border"><h5 class="bold">{{days[4]}}</h5></div>
+  <div class="border"><h5 class="bold">{{days[5]}}</h5></div>
+  <div class="border"><h5 class="bold">{{days[6]}}</h5></div>
+  <div *ngFor="let date of firstDayOfMonth">
+    <div class="border border-height">
+    </div>
+  </div> 
+  <div *ngFor="let day of lastMonthDays">
+    <div *ngIf="month > 0" class="border border-height">
+      <div class="grid100"> 
+        <button (click)="onViewDate(['day', year, month, day])" class="btn btn-primary">
+          <h6>View Day</h6>
+        </button>
+      </div>
+      <h5 class="bold short">{{day}}</h5>
+      <app-production-day [mach]="machine" [editMode]="editMode" [date]="year+'-'+lastMonthHold+'-'+day"></app-production-day>
+    </div>
+    <div *ngIf="month == 0" class="border border-height">
+      <div class="grid100"> 
+        <button (click)="onViewDate(['day', year-1, month+12, day])" class="btn btn-primary">
+          <h6>View Day</h6>
+        </button>
+      </div>
+      <h5 class="bold short">{{day}}</h5>
+      <app-production-day [mach]="machine" [editMode]="editMode" [date]="year-1+'-'+lastMonthHold+'-'+day"></app-production-day>
+    </div>
+  </div>
+  <div *ngFor="let day of monthDays">
+    <div *ngIf="day != today" class="border border-height">
+      <div class="grid100"> 
+        <button (click)="onViewDate(['day', year, month+1, day])" class="btn btn-primary">
+          <h6>View Day</h6>
+        </button>
+      </div>
+      <h5 class="bold short">{{day}}</h5>
+      <app-production-day [mach]="machine" [editMode]="editMode" [date]="year+'-'+monthHold+'-'+day"></app-production-day>
+    </div>
+    <div *ngIf="day == today" class="today-border border-height">
+      <div class="grid100"> 
+        <button (click)="onViewDate(['day', year, month+1, day])" class="btn btn-primary">
+          <h6>View Day</h6>
+        </button>
+      </div>
+      <h5 class="bold short">{{day}}</h5>
+      <app-production-day [mach]="machine" [editMode]="editMode" [date]="year+'-'+monthHold+'-'+day"></app-production-day>
+    </div>
+  </div>
+</div>
+<br><br><br>

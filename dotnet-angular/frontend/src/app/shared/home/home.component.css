@@ -1,0 +1,10 @@
+.grid50 { 
+    display: grid;
+    grid-template-columns: 49% 2% 49%;
+    text-align: center;
+}
+
+.thin{
+    width: 80%;
+    margin: auto;
+}
